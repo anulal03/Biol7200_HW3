@@ -11,6 +11,6 @@ tblastn \
   -query "$query" \
   -subject "$subject" \
   -outfmt "6 qseqid sseqid pident length qlen" \
-  > temp_results.txt
-awk '$3 > 30 && $4 > 0.9 * $5' temp_results.txt > filtered_results.txt
-wc -l filtered_results.txt
+  > "$output"
+awk '$3 > 30 && $4 > 0.9 * $5' > "$output"
+wc -l "$output"
